@@ -1,0 +1,3 @@
+*.o
+dwm.c.orig
+dwm
