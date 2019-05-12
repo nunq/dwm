@@ -13,16 +13,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Fira Code:size=14" };
 static const char dmenufont[]       = "Fira Code:size=16";
-/*static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";*/
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_middlepart[]        = "#2d2d2d";
+static const char col_middlepart[]  = "#2d2d2d";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -47,9 +42,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "[]",      tile },    /* first entry is default */
+	{ "FL",      NULL },    /* no layout function means floating behavior */
+	{ "MN",      monocle },
 };
 
 /* key definitions */
@@ -70,18 +65,18 @@ static const char *termcmd[]  = { "kitty", NULL };
 //
 // CUSTOM
 //
-//pulseaudio volume
+// pulseaudio volume
 static const char *upvol[]   = { "/home/nils/.scripts/volumectrl", "up",     NULL };
 static const char *downvol[] = { "/home/nils/.scripts/volumectrl", "down",     NULL };
 static const char *mutevol[] = { "/home/nils/.scripts/volumectrl", "togglemute", NULL };
-//lock on mod1+l
-static const char *sysmenu[] = { "/home/nils/.scripts/utilmenu", NULL };
-//brightness ctrl
+// lock on mod1+l
+static const char *utilmenu[] = { "/home/nils/.scripts/utilmenu", NULL };
+// brightness ctrl
 static const char *xblinc[] = { "/usr/bin/xbacklight", "-inc", "2", NULL };
 static const char *xbldec[] = { "/usr/bin/xbacklight", "-dec", "2", NULL };
-//clipmenu
+// clipmenu
 static const char *clipmenucmd[] = { "/usr/bin/clipmenu", NULL };
-//screenshot
+// screenshot
 static const char *scrotcmd[] = { "/home/nils/.scripts/screenshot", NULL };
 
 static Key keys[] = {
@@ -91,8 +86,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+// I don't even know what they do
+//	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+//	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
@@ -101,7 +97,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_z,      spawn,          {.v = sysmenu } },
 	{ MODKEY|ShiftMask,             XK_p,      togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -119,12 +114,17 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+//
+// CUSTOM
+//
 // hardware multimedia keys
 	{ MODKEY,                       XK_F2,     spawn, {.v = downvol } },
 	{ MODKEY,                       XK_F1,     spawn, {.v = mutevol } },
   { MODKEY,                       XK_F3,     spawn, {.v = upvol } },
 	{ MODKEY,                       XK_F11,    spawn, {.v = xbldec } },
   { MODKEY,                       XK_F12,    spawn, {.v = xblinc } },
+// utility menu (dmenu)
+	{ MODKEY,                       XK_d,      spawn,          {.v = utilmenu } },
 // clipmenu kb shortcut
   { MODKEY,                       XK_c,      spawn, {.v = clipmenucmd } },
 // screenshot kb shortcut
