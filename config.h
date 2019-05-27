@@ -25,18 +25,21 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5" };
+//static const char *tags[] = { "1", "2", "3", "4", "5" };
+static const char *tags[] = { "dev", "app", "med", "web", "etc" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       1 << 4,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 3,            0,           -1 },
+  { "Gimp",        NULL,       NULL,       1 << 4,            1,           -1 },
+  { "Firefox",     NULL,       NULL,       1 << 3,            0,           -1 },
+  { "Signal",      NULL,       NULL,       1 << 1,            0,           -1 },
+  { "Tor Browser", NULL,       NULL,       1 << 4,            0,           -1 },
 };
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -66,8 +69,8 @@ static const char *termcmd[]  = { "kitty", NULL };
 // CUSTOM
 //
 // pulseaudio volume
-static const char *upvol[]   = { "/home/nils/.scripts/volumectrl", "up",     NULL };
-static const char *downvol[] = { "/home/nils/.scripts/volumectrl", "down",     NULL };
+static const char *upvol[]   = { "/home/nils/.scripts/volumectrl", "up", NULL };
+static const char *downvol[] = { "/home/nils/.scripts/volumectrl", "down", NULL };
 static const char *mutevol[] = { "/home/nils/.scripts/volumectrl", "togglemute", NULL };
 // lock on mod1+l
 static const char *utilmenu[] = { "/home/nils/.scripts/utilmenu", NULL };
@@ -82,7 +85,7 @@ static const char *scrotcmd[] = { "/home/nils/.scripts/screenshot", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
