@@ -37,7 +37,7 @@ static const Rule rules[] = {
   { "Firefox",     NULL,       NULL,       1 << 3,            0,           -1 },
   { "Signal",      NULL,       NULL,       1 << 1,            0,           -1 },
   { "Tor Browser", NULL,       NULL,       1 << 4,            0,           -1 },
-  { "mpv",         NULL,       NULL,       1 << 2,            1,           -1 },
+  { "mpv",         NULL,       NULL,           ~0,            1,           -1 },
 };
 /* layout(s) */
 static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
