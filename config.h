@@ -37,9 +37,10 @@ static const Rule rules[] = {
   { "Firefox",     NULL,       NULL,       1 << 3,            0,           -1 },
   { "Signal",      NULL,       NULL,       1 << 1,            0,           -1 },
   { "Tor Browser", NULL,       NULL,       1 << 4,            0,           -1 },
+  { "mpv",         NULL,       NULL,       1 << 2,            1,           -1 },
 };
 /* layout(s) */
-static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -127,7 +128,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F11,    spawn, {.v = xbldec } },
   { MODKEY,                       XK_F12,    spawn, {.v = xblinc } },
 // utility menu (dmenu)
-	{ MODKEY,                       XK_d,      spawn,          {.v = utilmenu } },
+	{ MODKEY,                       XK_d,      spawn, {.v = utilmenu } },
 // clipmenu kb shortcut
   { MODKEY,                       XK_c,      spawn, {.v = clipmenucmd } },
 // screenshot kb shortcut
