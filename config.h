@@ -122,13 +122,13 @@ static Key keys[] = {
 // CUSTOM
 //
 // hardware multimedia keys
-	{ MODKEY,                       XK_F2,     spawn, {.v = downvol } },
-	{ MODKEY,                       XK_F1,     spawn, {.v = mutevol } },
+  { MODKEY,                       XK_F2,     spawn, {.v = downvol } },
+  { MODKEY,                       XK_F1,     spawn, {.v = mutevol } },
   { MODKEY,                       XK_F3,     spawn, {.v = upvol } },
-	{ MODKEY,                       XK_F11,    spawn, {.v = xbldec } },
+  { MODKEY,                       XK_F11,    spawn, {.v = xbldec } },
   { MODKEY,                       XK_F12,    spawn, {.v = xblinc } },
 // utility menu (dmenu)
-	{ MODKEY,                       XK_d,      spawn, {.v = utilmenu } },
+  { MODKEY,                       XK_d,      spawn, {.v = utilmenu } },
 // clipmenu kb shortcut
   { MODKEY,                       XK_c,      spawn, {.v = clipmenucmd } },
 // screenshot kb shortcut
