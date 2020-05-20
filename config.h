@@ -39,6 +39,7 @@ static const Rule rules[] = {
   { "Signal",      NULL,       NULL,       1 << 1,            0,           -1 },
   { "Tor Browser", NULL,       NULL,       1 << 4,            0,           -1 },
   { "mpv",         NULL,       NULL,           ~0,            1,           -1 },
+  { "Joplin",      NULL,       NULL,       1 << 2,            0,           -1 },
 };
 /* layout(s) */
 static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
@@ -65,7 +66,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_middlepart, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_middlepart, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 //
 // CUSTOM
