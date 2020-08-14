@@ -34,13 +34,12 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
   { "Gimp",        NULL,       NULL,       1 << 4,            1,           -1 },
-  { "firefox",     NULL,       NULL,       1 << 3,            0,           -1 },
-  { "Firefox",     NULL,       NULL,       1 << 3,            0,           -1 },
+  { "Chromium",     NULL,       NULL,       1 << 3,            0,           -1 },
   { "Signal",      NULL,       NULL,       1 << 1,            0,           -1 },
   { "Tor Browser", NULL,       NULL,       1 << 4,            0,           -1 },
   { "mpv",         NULL,       NULL,           ~0,            1,           -1 },
   { "Joplin",      NULL,       NULL,       1 << 2,            0,           -1 },
-  { NULL,         NULL,       "Picture-in-Picture",           ~0,            1,           -1 }, /* firefox's PiP */
+  { NULL,         NULL,       "Picture in picture",           ~0,            1,           -1 }, /* chromium's PiP */
 };
 /* layout(s) */
 static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
