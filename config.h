@@ -39,7 +39,7 @@ static const Rule rules[] = {
   { "Tor Browser", NULL,       NULL,       1 << 4,            0,           -1 },
   { "mpv",         NULL,       NULL,           ~0,            1,           -1 },
   { "Joplin",      NULL,       NULL,       1 << 2,            0,           -1 },
-  { NULL,         NULL,       "Picture in picture",           ~0,            1,           -1 }, /* chromium's PiP */
+  { NULL,         NULL,       "Picture-in-picture",           ~0,            1,           -1 }, /* chromium's PiP */
   { "code-oss",      NULL,       NULL,       1 << 0,            0,           -1 },
 };
 /* layout(s) */
