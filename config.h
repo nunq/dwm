@@ -35,12 +35,15 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
   { "Gimp",        NULL,       NULL,       1 << 4,            1,           -1 },
   { "Chromium",     NULL,       NULL,       1 << 3,            0,           -1 },
+  { "firefox",     NULL,       NULL,       1 << 3,            0,           -1 },
   { "Signal",      NULL,       NULL,       1 << 1,            0,           -1 },
   { "Tor Browser", NULL,       NULL,       1 << 4,            0,           -1 },
   { "mpv",         NULL,       NULL,           ~0,            1,           -1 },
   { "Joplin",      NULL,       NULL,       1 << 2,            0,           -1 },
   { NULL,         NULL,       "Picture-in-picture",           ~0,            1,           -1 }, /* chromium's PiP */
   { "code-oss",      NULL,       NULL,       1 << 0,            0,           -1 },
+  // spotify ignores this rule because the devs dont care to follow the spec :/
+  { "spotify",      NULL,       NULL,       1 << 4,            0,           -1 },
 };
 /* layout(s) */
 static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
@@ -76,7 +79,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *upvol[]   = { "/home/nils/.scripts/volumectrl", "up", NULL };
 static const char *downvol[] = { "/home/nils/.scripts/volumectrl", "down", NULL };
 static const char *mutevol[] = { "/home/nils/.scripts/volumectrl", "togglemute", NULL };
-// lock on mod1+l
+// utilmenu
 static const char *utilmenu[] = { "/home/nils/.scripts/utilmenu", NULL };
 // brightness ctrl
 static const char *xblinc[] = { "/usr/bin/xbacklight", "-inc", "2", NULL };
@@ -85,6 +88,8 @@ static const char *xbldec[] = { "/usr/bin/xbacklight", "-dec", "2", NULL };
 static const char *clipmenucmd[] = { "/usr/bin/clipmenu", NULL };
 // screenshot
 static const char *scrotcmd[] = { "/home/nils/.scripts/screenshot", NULL };
+// infopanel
+static const char *infopanel[] = { "/home/nils/.scripts/infopanel", "run", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -136,6 +141,8 @@ static Key keys[] = {
   { MODKEY,                       XK_c,      spawn, {.v = clipmenucmd } },
 // screenshot kb shortcut
   { 0,                            XK_Print,  spawn, {.v = scrotcmd } },
+// info panel (dmenu)
+  { MODKEY,                       XK_v,      spawn, {.v = infopanel } },
 };
 
 /* button definitions */
