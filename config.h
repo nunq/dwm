@@ -7,10 +7,10 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const unsigned int borderpx  = 1;  /* border pixel of windows */
+static const unsigned int snap      = 32; /* snap pixel */
+static const int showbar            = 1;  /* 0 means no bar */
+static const int topbar             = 1;  /* 0 means bottom bar */
 static const char *fonts[]          = { "Fira Code:size=14" };
 static const char dmenufont[]       = "Fira Code:size=16";
 static const char col_gray1[]       = "#222222";
@@ -25,7 +25,6 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-//static const char *tags[] = { "1", "2", "3", "4", "5" };
 static const char *tags[] = { "dev", "app", "med", "web", "etc" };
 static const Rule rules[] = {
 	/* xprop(1):
@@ -34,16 +33,16 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
   { "Gimp",        NULL,       NULL,       1 << 4,            1,           -1 },
-  { "Chromium",     NULL,       NULL,       1 << 3,            0,           -1 },
+  { "Chromium",    NULL,       NULL,       1 << 3,            0,           -1 },
   { "firefox",     NULL,       NULL,       1 << 3,            0,           -1 },
   { "Signal",      NULL,       NULL,       1 << 1,            0,           -1 },
   { "Tor Browser", NULL,       NULL,       1 << 4,            0,           -1 },
   { "mpv",         NULL,       NULL,           ~0,            1,           -1 },
   { "Joplin",      NULL,       NULL,       1 << 2,            0,           -1 },
-  { NULL,         NULL,       "Picture-in-picture",           ~0,            1,           -1 }, /* chromium's PiP */
-  { "code-oss",      NULL,       NULL,       1 << 0,            0,           -1 },
-  // spotify ignores this rule because the devs dont care to follow the spec :/
-  { "spotify",      NULL,       NULL,       1 << 4,            0,           -1 },
+  { "code-oss",    NULL,       NULL,       1 << 0,            0,           -1 },
+  { "spotify",     NULL,       NULL,       1 << 4,            0,           -1 }, // spotify ignores this rule because the devs dont care to follow the spec :/
+  { NULL,          NULL,       "Picture-in-picture",           ~0,            1,           -1 }, // chromium's PiP
+  { NULL,          NULL,       "Picture-in-Picture",           ~0,            1,           -1 }, // firefox' PiP
 };
 /* layout(s) */
 static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
@@ -86,8 +85,10 @@ static const char *xblinc[] = { "/usr/bin/xbacklight", "-inc", "2", NULL };
 static const char *xbldec[] = { "/usr/bin/xbacklight", "-dec", "2", NULL };
 // clipmenu
 static const char *clipmenucmd[] = { "/usr/bin/clipmenu", NULL };
-// screenshot
-static const char *scrotcmd[] = { "/home/nils/.scripts/screenshot", NULL };
+// screenshot area
+static const char *screenshot_area[] = { "/home/nils/.scripts/screenshot", "area", NULL };
+// screenshot all
+static const char *screenshot_all[] = { "/home/nils/.scripts/screenshot", "all", NULL };
 // infopanel
 static const char *infopanel[] = { "/home/nils/.scripts/infopanel", "run", NULL };
 
@@ -98,7 +99,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-// I don't even know what they do
+// i dont even know what they do. i dont use them
 //	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 //	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -135,13 +136,10 @@ static Key keys[] = {
   { MODKEY,                       XK_F3,     spawn, {.v = upvol } },
   { MODKEY,                       XK_F11,    spawn, {.v = xbldec } },
   { MODKEY,                       XK_F12,    spawn, {.v = xblinc } },
-// utility menu (dmenu)
   { MODKEY,                       XK_d,      spawn, {.v = utilmenu } },
-// clipmenu kb shortcut
   { MODKEY,                       XK_c,      spawn, {.v = clipmenucmd } },
-// screenshot kb shortcut
-  { 0,                            XK_Print,  spawn, {.v = scrotcmd } },
-// info panel (dmenu)
+  { 0,                            XK_Print,  spawn, {.v = screenshot_area } },
+  { ShiftMask,                    XK_Print,  spawn, {.v = screenshot_all } },
   { MODKEY,                       XK_v,      spawn, {.v = infopanel } },
 };
 
