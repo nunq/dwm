@@ -92,6 +92,8 @@ static const char *screenshot_area[] = { "/home/nils/.scripts/screenshot", "area
 static const char *screenshot_all[] = { "/home/nils/.scripts/screenshot", "all", NULL };
 // infopanel
 static const char *infopanel[] = { "/home/nils/.scripts/infopanel", "run", NULL };
+// nautilus
+static const char *nautilus[] = { "nautilus", "--new-window", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -139,6 +141,7 @@ static Key keys[] = {
   { 0,                            XK_Print,  spawn, {.v = screenshot_area } },
   { ShiftMask,                    XK_Print,  spawn, {.v = screenshot_all } },
   { MODKEY,                       XK_v,      spawn, {.v = infopanel } },
+  { MODKEY,                       XK_a,      spawn, {.v = nautilus } },
 };
 
 /* button definitions */
