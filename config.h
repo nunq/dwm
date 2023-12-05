@@ -82,8 +82,8 @@ static const char *mutevol[] = { "/home/nils/.scripts/volumectrl", "togglemute",
 // utilmenu
 static const char *utilmenu[] = { "/home/nils/.scripts/utilmenu", NULL };
 // brightness ctrl
-static const char *xblinc[] = { "/usr/bin/xbacklight", "-inc", "2", NULL };
-static const char *xbldec[] = { "/usr/bin/xbacklight", "-dec", "2", NULL };
+static const char *blinc[] = { "/usr/bin/light", "-A", "2", NULL };
+static const char *bldec[] = { "/usr/bin/light", "-U", "2", NULL };
 // clipmenu
 static const char *clipmenucmd[] = { "/usr/bin/clipmenu", NULL };
 // screenshot area
@@ -134,8 +134,8 @@ static Key keys[] = {
   { MODKEY,                       XK_F2,     spawn, {.v = downvol } },
   { MODKEY,                       XK_F1,     spawn, {.v = mutevol } },
   { MODKEY,                       XK_F3,     spawn, {.v = upvol } },
-  { MODKEY,                       XK_F11,    spawn, {.v = xbldec } },
-  { MODKEY,                       XK_F12,    spawn, {.v = xblinc } },
+  { MODKEY,                       XK_F5,     spawn, {.v = bldec } },
+  { MODKEY,                       XK_F6,     spawn, {.v = blinc } },
   { MODKEY,                       XK_d,      spawn, {.v = utilmenu } },
   { MODKEY,                       XK_c,      spawn, {.v = clipmenucmd } },
   { 0,                            XK_Print,  spawn, {.v = screenshot_area } },
